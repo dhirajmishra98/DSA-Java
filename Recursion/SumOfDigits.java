@@ -1,20 +1,26 @@
-package Recursion;
-
-import java.util.Scanner;
-
-public class SumOfDigits {
-    public static void main(String[] args) {
-        System.out.println("Enter Number : ");
-        Scanner sc = new Scanner(System.in);
-        int num = sc.nextInt();
-        System.out.println("The sum of digits of "+num+" is : "+sumOfDigits(num));
-    }
-    static int sumOfDigits(int n){
-        if(n<0)
-            return -1;
-        if(n == 0)
+import java.util.*;
+class SumOfDigits{
+    public static int sumDigit(int n){
+        if(n == 0){
             return 0;
-        else
-            return (n%10)+sumOfDigits(n/10);
+        }
+
+        return (n%10)+sumDigit(n/10);
+    }
+
+    public static int productDigit(int n){
+        if(n%10 == n){
+            return n;
+        }
+
+        return (n%10)*productDigit(n/10);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        sc.close();
+
+        System.out.println(productDigit(n));
     }
 }
